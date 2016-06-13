@@ -11,8 +11,6 @@ def connectToDb():
 	password = cred['MYSQL_PASSWORD']
 	database = 'buildapcsales'
 
-	print password
-
 	db = MySQLdb.connect(host, user, password, database)
 
 	return db
