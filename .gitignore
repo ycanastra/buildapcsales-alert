@@ -1,4 +1,3 @@
-buildapcsales_alert/*.pyc
+py/*.pyc
 credentials.json
-unneeded_things/
 
