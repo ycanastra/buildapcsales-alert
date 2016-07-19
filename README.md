@@ -1,2 +1,2 @@
 # buildapcsales-alert
-Notifies users when new buildapcsales posts with specific terms is found
+Sends notification emails to users when new /r/buildapcsales posts containing user-submitted keywords are found. 
