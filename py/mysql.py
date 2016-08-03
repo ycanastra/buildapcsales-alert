@@ -1,5 +1,6 @@
 import MySQLdb
 import json
+import re
 
 def connectToDb():
 	f = open('/var/www/run/buildapcsales-alert/credentials.json', 'r')
@@ -40,9 +41,11 @@ def getUserIdsByProductName(productName):
 	db = connectToDb()
 	cursor = db.cursor()
 
+	productName = re.escape(productName)
+
 	# execute SQL query using execute() method.
 	cursor.execute('USE buildapcsales;')
-	cursor.execute('SELECT userID FROM Products WHERE name = \"' + productName + '\" ;')
+	cursor.execute('SELECT userID FROM Products WHERE name LIKE BINARY \"' + productName + '\" ;')
 
 	# Fetch a single row using fetchone() method.
 	data = cursor.fetchall()
