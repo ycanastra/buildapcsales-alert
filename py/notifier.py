@@ -43,7 +43,10 @@ def main():
 
 		msg = message.createMessage(productName, userId, post, recipient)
 
-		gmail.sendMessage(service, 'sales.bot.noreply@gmail.com', msg)
+		try:
+			gmail.sendMessage(service, 'sales.bot.noreply@gmail.com', msg)
+		except:
+			print 'An error occurred'
 
 if __name__ == "__main__":
 	main()
