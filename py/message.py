@@ -34,7 +34,7 @@ def createUnsubLinks(productName, userid):
 def createMessage(productName, userId, post, recipient, subreddit='buildapcsales'):
 	msg = MIMEMultipart('alternative')
 	msg['to'] = recipient
-	msg['from'] = 'sales.bot.noreply@gmail.com'
+	msg['from'] = 'noreply@buildapcsales-alert.com'
 	msg['subject'] = post.title #createSubject(productName, post)
 
 	postPermalink = post.permalink
@@ -49,6 +49,9 @@ def createMessage(productName, userId, post, recipient, subreddit='buildapcsales
 		  <body>
 		    <p>
 				Hello!
+				<br>
+				<br>
+				This is an email from Buildapcsales Alert.
 				<br>
 				<br>
 				A post with the keyword {0} has been found on {1}!
@@ -76,4 +79,4 @@ def createMessage(productName, userId, post, recipient, subreddit='buildapcsales
 
 	msg.attach(MIMEText(newBody, 'html'))
 
-	return {'raw': base64.urlsafe_b64encode(msg.as_string())}
+	return msg
